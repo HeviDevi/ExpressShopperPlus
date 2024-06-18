@@ -12,16 +12,20 @@ router.get('/', (req, res) => {
       model: Product,
       attributes: ['product_name', 'price', 'stock', 'category_id']
     }
-  ]
+    ]
   })
-
+  .then((CategoryData) => res.json(CategoryData))
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 router.get('/:id', (req, res) => {
   // finds one category by its `id` value
   Category.findOne({
     where: {
-      id: req.body.id
+      id: req.params.id
     },
      //  includes its associated Products
     include: [
@@ -31,27 +35,30 @@ router.get('/:id', (req, res) => {
     }
   ]
 })
-  
- 
+.then((CategoryData) => res.json(CategoryData))
+.catch((err) => {
+  console.log(err);
+  res.status(500).json(err);})
 });
 
 router.post('/', (req, res) => {
   Category.create({
-    id: req.body.id,
     category_name: req.body.category_name
-
   })
+  .then((CategoryData) => res.json(CategoryData))
   // create a new category
 });
 
 router.put('/:id', (req, res) => {
-    // updates a category by its `id` value
-  Category.update(req.body, {
-    where: {
-      id: req.body.id
-    }
+    // updates a category's name after targeting its `id` value
+  Category.update({
+    category_name: req.body.category_name
+  },
+    { where: {
+      id: req.params.id
+    },
   })
-
+  .then((CategoryData) => res.json(CategoryData))
 });
 
 router.delete('/:id', (req, res) => {
@@ -61,7 +68,7 @@ router.delete('/:id', (req, res) => {
       id: req.body.id
     }
   })
-  
+  .then((CategoryData) => res.json(CategoryData))
 });
 
 module.exports = router;

@@ -18,7 +18,17 @@ router.get("/", (req, res) => {
         attributes: ["tag_name"],
       },
     ],
-  }).then((productData) => res.json(productData));
+  }).then((productData) => {
+    if (!productData) {
+      return res.status(404).send({ message: "Product not found" });
+    } else {
+      res.json(productData)
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  })
 });
 
 // get one product
@@ -37,12 +47,13 @@ router.get("/:id", (req, res) => {
       },
     ],
   })
-    .then((product) => {
-      if (!product) {
+    .then((productData) => {
+      if (!productData) {
         return res.status(404).send({ message: "Product not found" });
-      }
-      res.send(product);
-    })
+      } else {
+      res.send(productData);
+    }
+  })
     .catch((error) => res.status(500).send({ message: error.message }));
 });
 
@@ -55,7 +66,7 @@ router.post("/", (req, res) => {
       stock: 3,
       tagIds: [1, 2, 3, 4]
     }
-  */
+  */ 
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
