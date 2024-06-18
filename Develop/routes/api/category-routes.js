@@ -67,7 +67,7 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  .then((CategoryData) => res.json({ message: `Category deleted successfully`}))
+  .then(() => res.json({ message: `Category deleted successfully`}))
 });
 
 module.exports = router;
