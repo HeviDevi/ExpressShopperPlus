@@ -26,21 +26,24 @@ To get ExpressShopperPlus up and running, follow these steps:
 
 Use tools like Insomnia Core or Postman to interact with the API.
 
+# Product CRUD
 - To add a new product: `POST /api/products`. 
             Be sure to view the product's post route on `product-routes.js` in the api folder of the routes directory for an example of what the JSON request body should look like 
 - To view all products: `GET /api/products`
 - To view products by id: `GET /api/products/:id`
 - To update a product by id: `PUT /api/products/:id`
 - To delete a product by id: `DELETE /api/products/:id`
+<br>
 
+# Category CRUD
 - To view all categories: `GET /api/categories`
 - To view category by id: `GET /api/categories/:id`
 - To add a new category: `POST /api/categories`
 - To update a category: `PUT /api/categories/:id`. Be sure to add the new category name in the body of your request
 - To delete a category by id: `DELETE /api/categories/:id`
+<br>
 
-
-
+# Tag CRUD
 - To View all Tags: `GET /api/tags`
 - To View Tag by id: `GET /api/tags/:id`
 - To update a tag name: `PUT /api/tags/:id`. Be sure to add the new tag name to the body of your request.
