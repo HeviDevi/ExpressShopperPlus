@@ -17,7 +17,7 @@ To get ExpressShopperPlus up and running, follow these steps:
 1. Clone the repository to your local machine.
 2. Navigate to the project directory and install dependencies with `npm install`.
 3. Set up your PostgreSQL database and update the `.env` file with your database name, user, and password.
-4. Use the shell command `psql -U username` and enter your password to log into your postgres.
+4. Use the shell command `psql -U <username>` and enter your password.
 5. Create the database by copying and pasting the schema onto the command line, then exit using `\q`
 6. Seed the database with initial data by running `node seeds index.js` in the command line.
 7. Start the server by running `node server.js` in the command line. Your application should now be running on `localhost:3000`.
@@ -26,17 +26,20 @@ To get ExpressShopperPlus up and running, follow these steps:
 
 Use tools like Insomnia Core or Postman to interact with the API.
 
+- To add a new product: `POST /api/products`. 
+            Be sure to view the product's post route on `product-routes.js` in the api folder of the routes directory for an example of what the JSON request body should look like 
+- To view all products: `GET /api/products`
+- To view products by id: `GET /api/products/:id`
+- To update a product by id: `PUT /api/products/:id`
+- To delete a product by id: `DELETE /api/products/:id`
+
 - To view all categories: `GET /api/categories`
 - To view category by id: `GET /api/categories/:id`
 - To add a new category: `POST /api/categories`
 - To update a category: `PUT /api/categories/:id`. Be sure to add the new category name in the body of your request
 - To delete a category by id: `DELETE /api/categories/:id`
 
-- To view all products: `Get /api/products`
-- To view products by id: `GET /api/products/:id`
-- To add a new product: `POST /api/products`. 
-            Be sure to view the product's post route on `product-routes.js` for an example of what the JSON request body should look like 
-- To delete a product by id: `DELETE /api/products/:id`
+
 
 - To View all Tags: `GET /api/tags`
 - To View Tag by id: `GET /api/tags/:id`
