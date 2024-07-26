@@ -18,7 +18,7 @@ To get ExpressShopperPlus up and running, follow these steps:
 2. Navigate to the project directory and install dependencies with `npm install`.
 3. Set up your PostgreSQL database and update the `.env` file with your database name, user, and password.
 4. Use the shell command `psql -U <username>` and enter your password.
-5. Create the database by copying and pasting the schema onto the command line, then exit using `\q`
+5. Create the database by copying and pasting the schema (located in the db folder) onto the command line, then exit using `\q`
 6. Seed the database with initial data by running `node seeds index.js` in the command line.
 7. Start the server by running `node server.js` in the command line. Your application should now be running on `localhost:3000`.
 
