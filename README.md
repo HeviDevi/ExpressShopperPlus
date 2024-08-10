@@ -60,4 +60,6 @@ This project was developed by Devon "HeviDevi" Ross using starter code provided 
 
 - RESTful API for managing products, categories, and tags.
 - Seamless integration with PostgreSQL for robust data management.
-- Scalable architecture suitable for e-commerce platforms of any size.
+
+- ## Link to walkthrough video
+- https://www.loom.com/share/a6565428f1884af5979ae5215acc6312
